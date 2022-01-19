@@ -1,0 +1,12 @@
+{
+  "name": "root",
+  "private": true,
+  "scripts": {
+    "start": "cd vdt-adobe-panel-client && yarn start",
+    "install": "cd vdt-adobe-panel-client && yarn install",
+    "postinstall": "cd vdt-adobe-panel-host && yarn install",
+    "prebuild": "'/Applications/Adobe Creative Cloud/ZXPSignCmd-64bit' -selfSignedCert US LA Vidispine vdt-panels abc123 MyCert.p12",
+    "build": "cd vdt-adobe-panel-client && yarn build",
+    "postbuild": "'/Applications/Adobe Creative Cloud/ZXPSignCmd-64bit' -sign vdt-adobe-panel-host/ vdt-adobe-panel_`date +%Y%m%d-%H%M`.zxp MyCert.p12 abc123"
+  }
+}

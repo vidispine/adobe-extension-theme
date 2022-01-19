@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExtensionList>
+  <Extension Id="com.vidispine.VdtPanel.dev">
+    <HostList>
+      <Host Name="PPRO" Port="7777" />
+    </HostList>
+  </Extension>
+  <Extension Id="com.vidispine.VdtPanel.prod">
+    <HostList>
+      <Host Name="PPRO" Port="7778" />
+    </HostList>
+  </Extension>
+</ExtensionList>

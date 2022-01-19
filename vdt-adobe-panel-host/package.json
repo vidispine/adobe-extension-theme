@@ -1,0 +1,9 @@
+{
+  "name": "@vidispine/vdt-adobe-panel-host",
+  "version": "1.0.0-pre.0",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "axios": "^0.21.1"
+  }
+}

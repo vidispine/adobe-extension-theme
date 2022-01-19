@@ -1,0 +1,80 @@
+{
+  "name": "@vidispine/vdt-adobe-panel-client",
+  "repository": {
+    "url": "git@github.com:vidispine/adobe-panel.git"
+  },
+  "homepage": "./",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@material-ui/core": "^4.11.0",
+    "@material-ui/icons": "^4.9.1",
+    "@material-ui/lab": "^4.0.0-alpha.56",
+    "@vidispine/vdt-api": "^0.15.0-pre.18",
+    "@vidispine/vdt-js": "^0.15.0-pre.18",
+    "@vidispine/vdt-materialui": "^0.15.0-pre.18",
+    "@vidispine/vdt-react": "^0.15.0-pre.18",
+    "clsx": "^1.1.1",
+    "lodash.debounce": "^4.0.8",
+    "moment": "^2.29.1",
+    "path-to-regexp": "^6.2.0",
+    "react": "^17.0.2",
+    "react-cookie": "^4.0.3",
+    "react-dom": "^17.0.2",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "4.0.3",
+    "typeface-roboto": "^0.0.75",
+    "use-deep-compare-effect": "^1.6.1",
+    "react-final-form": "^6.5.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "predeploy": "GENERATE_SOURCEMAP=false PUBLIC_URL=${npm_package_homepage} yarn build && cp build/index.html build/404.html",
+    "deploy": "gh-pages -d build -r ${npm_package_repository_url}"
+  },
+  "eslintConfig": {
+    "extends": [
+      "@vidispine"
+    ],
+    "globals": {
+      "CSInterface": true,
+      "cep": true,
+      "cep_node": true,
+      "SystemPath": true
+    },
+    "parserOptions": {
+      "ecmaVersion": 2020
+    }
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@vidispine/eslint-config": "^0.15.0-pre.18",
+    "@vidispine/eslint-config-base": "^0.15.0-pre.18",
+    "@vidispine/eslint-config-react": "^0.15.0-pre.18",
+    "@vidispine/prettier-config": "^0.15.0-pre.18",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^7.1.0",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-react": "^7.23.1",
+    "eslint-plugin-react-hooks": "^4.0.1",
+    "gh-pages": "^3.2.3",
+    "http-proxy-middleware": "^1.3.1",
+    "prettier": "2.2.x"
+  },
+  "prettier": "@vidispine/prettier-config"
+}
