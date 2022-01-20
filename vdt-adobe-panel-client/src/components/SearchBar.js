@@ -39,13 +39,17 @@ const styles = (theme) => ({
   },
 });
 
-function SearchBar({ classes, onSubmit }) {
+function SearchBar({ classes, onChange }) {
   const handleOnChange = (val) => {
-    onSubmit(val);
+    onChange(val);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
   };
 
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <div className={classes.grow}>
         <div className={classes.search}>
           <div className={classes.searchIcon}>

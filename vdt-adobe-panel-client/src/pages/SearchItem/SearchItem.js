@@ -84,7 +84,7 @@ function SearchItem({ classes }) {
           disableTypography
           subheader={
             <Box display="flex" alignItems="center">
-              <SearchBar className={classes.SearchInput} onSubmit={setSearchText} />
+              <SearchBar className={classes.SearchInput} onChange={setSearchText} />
               <Box ml={1} height={32}>
                 <LayoutButtonGroup viewLayout={layout} onChangeViewLayout={toggleLayout} />
               </Box>
