@@ -3,6 +3,8 @@
   <Extension Id="com.vidispine.VdtPanel.dev">
     <HostList>
       <Host Name="PPRO" Port="7777" />
+      <Host Name="PHSP" Port="8001"/>
+      <Host Name="PHXS" Port="8088"/>
     </HostList>
   </Extension>
   <Extension Id="com.vidispine.VdtPanel.prod">

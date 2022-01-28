@@ -7,6 +7,10 @@ export const LOGIN_EXPIRES_SECONDS = 1209600; // 14 days
 
 export const ITEM_VIEW = 'ITEM_VIEW';
 
+export const PROJECT_APP_TYPE = 'PROJECT_APP_TYPE';
+export const PHXS = 'PHXS';
+export const PPRO = 'PPRO';
+
 export const APP_TITLE = process.env.REACT_APP_TITLE;
 export const VIDISPINE_URL =
   process.env.REACT_APP_VIDISPINE_URL === '' ? undefined : process.env.REACT_APP_VIDISPINE_URL;

@@ -8,6 +8,8 @@
   <ExecutionEnvironment>
     <HostList>
       <Host Name="PPRO" Version="[0.0,99.9]" />
+      <Host Name="PHXS" Version="[22.0,24.0]"/>
+			<Host Name="PHSP" Version="[22.0,24.0]"/>
     </HostList>
     <LocaleList>
       <Locale Code="All" />
