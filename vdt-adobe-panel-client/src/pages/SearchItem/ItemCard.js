@@ -3,7 +3,10 @@ import moment from 'moment';
 import { parseShapeType } from '@vidispine/vdt-js';
 import { MediaCard } from '@vidispine/vdt-materialui';
 import { withStyles, Box, Divider, Typography } from '@material-ui/core';
-import { downloadItem, setSnackbar } from '../../cep';
+import { downloadItemPsd, downloadItem, setSnackbar } from '../../cep';
+import { PROJECT_APP_TYPE, PHXS } from '../../const';
+
+const hostEnvironment = localStorage.getItem(PROJECT_APP_TYPE);
 
 const styles = ({ palette }) => ({
   root: {
@@ -37,14 +40,16 @@ const Content = ({ subheader, fileSize }) => (
 const ItemCard = ({ title, subheader, ThumbnailProps, itemType, classes }) => {
   const { shape: [shape] = [], id: itemId } = itemType;
   const { fileSize } = parseShapeType(shape);
-  const onClick = () =>
-    downloadItem({
+  const onClick = () => {
+    const download = hostEnvironment === PHXS ? downloadItemPsd : downloadItem;
+    download({
       itemId,
       // eslint-disable-next-line no-console
       onDownloadProgress: (downloadProgress) => console.log({ downloadProgress }),
     })
       .then(() => setSnackbar('Media Imported', 'info'))
       .catch((error) => setSnackbar(error.message, 'error'));
+  };
   return (
     <MediaCard
       title={title}

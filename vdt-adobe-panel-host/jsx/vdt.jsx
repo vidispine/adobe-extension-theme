@@ -1,5 +1,4 @@
 $._VIDISPINE_ = {
-
   onError: function (error) {
     app.setSDKEventMessage(error.message, "error");
     throw error;
@@ -127,7 +126,6 @@ $._VIDISPINE_ = {
     return output;
   },
 
-
   walkProject: function (parseOpts) {
     try {
       var projectItem = app.project.rootItem;
@@ -202,5 +200,36 @@ $._VIDISPINE_ = {
     }
   },
 
-};
+  createLayer: function (layername) {
+    try {
+      if (layername == undefined) layername = "Layer";
+      var originalLayer = app.activeDocument.activeLayer;
+      var layerRef = app.activeDocument.artLayers.add();
+      layerRef.name = layername;
+      layerRef.blendMode = BlendMode.NORMAL;
+      layerRef.moveAfter(originalLayer);
+    } catch (error) {
+      $._VIDISPINE_.onError(error);
+    }
+  },
 
+  saveFile: function (placeFile) {
+    try {
+      $._VIDISPINE_.createLayer();
+      var desc21 = new ActionDescriptor();
+      desc21.putPath(charIDToTypeID("null"), new File(placeFile));
+      desc21.putEnumerated(
+        charIDToTypeID("FTcs"),
+        charIDToTypeID("QCSt"),
+        charIDToTypeID("Qcsa")
+      );
+      var desc22 = new ActionDescriptor();
+      desc22.putUnitDouble(charIDToTypeID("Hrzn"), charIDToTypeID("#Pxl"), 0.0);
+      desc22.putUnitDouble(charIDToTypeID("Vrtc"), charIDToTypeID("#Pxl"), 0.0);
+      desc21.putObject(charIDToTypeID("Ofst"), charIDToTypeID("Ofst"), desc22);
+      executeAction(charIDToTypeID("Plc "), desc21, DialogModes.NO);
+    } catch (error) {
+      $._VIDISPINE_.onError(error);
+    }
+  },
+};

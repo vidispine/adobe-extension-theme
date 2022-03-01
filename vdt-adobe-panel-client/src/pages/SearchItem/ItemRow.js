@@ -3,9 +3,12 @@ import moment from 'moment';
 import { ItemListItem } from '@vidispine/vdt-materialui';
 import { parseShapeType } from '@vidispine/vdt-js';
 import { withStyles, Box, Typography } from '@material-ui/core';
+import { PROJECT_APP_TYPE, PHXS } from '../../const';
 
 import { Avatar, Action } from '../../components';
-import { downloadItem, setSnackbar } from '../../cep';
+import { downloadItemPsd, downloadItem, setSnackbar } from '../../cep';
+
+const hostEnvironment = localStorage.getItem(PROJECT_APP_TYPE);
 
 const styles = ({ palette, spacing }) => ({
   root: {
@@ -21,8 +24,9 @@ const styles = ({ palette, spacing }) => ({
 const ItemRow = ({ classes, itemType = {} }) => {
   const { shape: [shape] = [], id: itemId } = itemType;
   const { fileSize } = parseShapeType(shape);
+  const download = hostEnvironment === PHXS ? downloadItemPsd : downloadItem;
   const onClick = () =>
-    downloadItem({
+    download({
       itemId,
       // eslint-disable-next-line no-console
       onDownloadProgress: (downloadProgress) => console.log({ downloadProgress }),
